@@ -6,6 +6,8 @@ public class Product {
     private double price;
     private int quantity;
     private int sellerId;
+    private String description;
+
 
     // Getters and Setters
     public int getProductId() {
@@ -47,4 +49,14 @@ public class Product {
     public void setSellerId(int sellerId) {
         this.sellerId = sellerId;
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    
+
 }
