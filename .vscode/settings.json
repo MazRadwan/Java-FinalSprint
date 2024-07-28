@@ -1,0 +1,9 @@
+{
+  "java.project.referencedLibraries": [
+      "lib/**/*.jar",
+      "javaDB/lib/jBCrypt-0.4.1.jar",
+      "javaDB/lib/postgresql-42.6.0.jar",
+      "/Users/keyinstudent/Documents/Winter simester/javaDB/lib/jBCrypt-0.4.1.jar",
+      "/Users/keyinstudent/Documents/Winter simester/javaDB/lib/postgresql-42.6.0.jar"
+  ]
+}
