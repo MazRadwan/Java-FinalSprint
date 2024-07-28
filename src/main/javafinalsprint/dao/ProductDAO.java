@@ -13,13 +13,15 @@ public class ProductDAO {
     }
 
     public void createProduct(Product product) {
-        String sql = "INSERT INTO Products (name, price, quantity, seller_id) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO Products (name, price, quantity, seller_id, description) VALUES (?, ?, ?, ?,?)";
 
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setString(1, product.getName());
             stmt.setDouble(2, product.getPrice());
             stmt.setInt(3, product.getQuantity());
             stmt.setInt(4, product.getSellerId());
+            stmt.setString(5, product.getDescription());
+
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

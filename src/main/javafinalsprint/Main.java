@@ -30,6 +30,7 @@ public class Main {
         newProduct.setPrice(1);
         newProduct.setQuantity(12);
         newProduct.setSellerId(1);
+        newProduct.setDescription("test description");
 
         productService.addProduct(newProduct);
         System.out.println("Product added successfully!");
