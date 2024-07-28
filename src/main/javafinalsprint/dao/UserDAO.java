@@ -1,6 +1,6 @@
-package com.javafinalsprint.dao;
+package main.javafinalsprint.dao;
 
-import com.javafinalsprint.model.User;
+import main.javafinalsprint.model.User;
 import java.sql.*;
 
 public class UserDAO {

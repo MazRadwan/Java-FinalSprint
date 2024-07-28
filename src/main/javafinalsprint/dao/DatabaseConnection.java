@@ -1,4 +1,4 @@
-package com.javafinalsprint.dao;
+package main.javafinalsprint.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

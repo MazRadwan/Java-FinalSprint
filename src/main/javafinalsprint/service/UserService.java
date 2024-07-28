@@ -1,7 +1,7 @@
-package com.javafinalsprint.service;
+package main.javafinalsprint.service;
 
-import com.javafinalsprint.dao.UserDAO;
-import com.javafinalsprint.model.User;
+import main.javafinalsprint.dao.UserDAO;
+import main.javafinalsprint.model.User;
 
 import java.sql.SQLException;
 

@@ -1,4 +1,4 @@
-package com.javafinalsprint.model;
+package main.javafinalsprint.model;
 
 public class Product {
     private int productId;

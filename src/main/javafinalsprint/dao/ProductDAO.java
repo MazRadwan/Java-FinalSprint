@@ -1,6 +1,6 @@
-package com.javafinalsprint.dao;
+package main.javafinalsprint.dao;
 
-import com.javafinalsprint.model.Product;
+import main.javafinalsprint.model.Product;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

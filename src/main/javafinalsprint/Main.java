@@ -1,9 +1,11 @@
-package com.javafinalsprint;
+package main.javafinalsprint;
 
 import java.sql.SQLException;
 
-import com.javafinalsprint.model.User;
-import com.javafinalsprint.service.UserService;
+import main.javafinalsprint.model.Product;
+import main.javafinalsprint.model.User;
+import main.javafinalsprint.service.ProductService;
+import main.javafinalsprint.service.UserService;
 
 public class Main {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
@@ -20,5 +22,16 @@ public class Main {
         userService.registerUser(newUser);
 
         System.out.println("User registered successfully!");
+
+        ProductService productService = new ProductService();
+
+        Product newProduct = new Product();
+        newProduct.setName("test");
+        newProduct.setPrice(1);
+        newProduct.setQuantity(12);
+        newProduct.setSellerId(1);
+
+        productService.addProduct(newProduct);
+        System.out.println("Product added successfully!");
     }
 }
