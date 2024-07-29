@@ -1,57 +1,63 @@
 package main.javafinalsprint.gui;
 
+import main.javafinalsprint.model.User;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 
 public class Dashboard extends JFrame {
-    private JButton buyerButton;
-    private JButton sellerButton;
-    private JButton adminButton;
+    private User currentUser;
+    private JButton sellerDashboardButton;
+    private JButton buyerDashboardButton;
+    private JButton adminDashboardButton;
+    private JButton logoutButton;
 
-    public Dashboard() {
+    public Dashboard(User user) {
+        this.currentUser = user;
         setTitle("Dashboard");
-        setSize(300, 200);
+        setSize(400, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
+        initComponents();
+    }
+
+    private void initComponents() {
+        sellerDashboardButton = new JButton("Seller Dashboard");
+        buyerDashboardButton = new JButton("Buyer Dashboard");
+        adminDashboardButton = new JButton("Admin Dashboard");
+        logoutButton = new JButton("Logout");
+
+        sellerDashboardButton.addActionListener(e -> openSellerDashboard());
+        buyerDashboardButton.addActionListener(e -> openBuyerDashboard());
+        adminDashboardButton.addActionListener(e -> openAdminDashboard());
+        logoutButton.addActionListener(e -> logout());
+
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(3, 1));
+        panel.setLayout(new GridLayout(4, 1));
+        panel.add(sellerDashboardButton);
+        panel.add(buyerDashboardButton);
+        panel.add(adminDashboardButton);
+        panel.add(logoutButton);
 
-        buyerButton = new JButton("Buyer Dashboard");
-        sellerButton = new JButton("Seller Dashboard");
-        adminButton = new JButton("Admin Dashboard");
+        add(panel, BorderLayout.CENTER);
+    }
 
-        buyerButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new BuyerDashboard(null).setVisible(true);
-                Dashboard.this.dispose();
-            }
-        });
+    private void openSellerDashboard() {
+        new SellerDashboard(currentUser).setVisible(true); // Pass currentUser to the constructor
+        Dashboard.this.dispose();
+    }
 
-        sellerButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new SellerDashboard().setVisible(true);
-                Dashboard.this.dispose();
-            }
-        });
+    private void openBuyerDashboard() {
+        // Implement opening Buyer Dashboard
+    }
 
-        adminButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new AdminDashboard(null).setVisible(true);
-                Dashboard.this.dispose();
-            }
-        });
+    private void openAdminDashboard() {
+        // Implement opening Admin Dashboard
+    }
 
-        panel.add(buyerButton);
-        panel.add(sellerButton);
-        panel.add(adminButton);
-
-        add(panel);
+    private void logout() {
+        dispose();
+        new LoginScreen().setVisible(true);
     }
 }

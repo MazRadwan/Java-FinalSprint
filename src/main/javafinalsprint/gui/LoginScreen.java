@@ -1,9 +1,10 @@
 package main.javafinalsprint.gui;
 
 import main.javafinalsprint.model.User;
-import main.javafinalsprint.gui.AdminDashboard;
+
 import main.javafinalsprint.service.UserService;
-import main.javafinalsprint.gui.BuyerDashboard;
+
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -115,9 +116,11 @@ public class LoginScreen extends JFrame {
                 case "buyer":
                     new BuyerDashboard(user).setVisible(true);
                     break;
-                case "seller":
-                    new SellerDashboard().setVisible(true);
+                    case "seller":
+                    SellerDashboard sellerDashboard = new SellerDashboard(user); // Pass user to the constructor
+                    sellerDashboard.setVisible(true);
                     break;
+                
                 case "admin":
                     new AdminDashboard(user).setVisible(true);
                     break;

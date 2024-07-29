@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import main.javafinalsprint.gui.BuyerDashboard;
+
 
 public class AdminDashboard extends JFrame {
     private JTable userTable;
@@ -14,10 +14,10 @@ public class AdminDashboard extends JFrame {
     private JButton deleteUserButton;
     private JButton deleteProductButton;
     private JButton logoutButton;
-    private User currentUser;
+  
 
     public AdminDashboard(User user) {
-        this.currentUser = user;
+   
         setTitle("Admin Dashboard");
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

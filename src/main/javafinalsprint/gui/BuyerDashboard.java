@@ -8,8 +8,6 @@ import main.javafinalsprint.service.UserService;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.List;
 
 public class BuyerDashboard extends JFrame {
@@ -20,10 +18,10 @@ public class BuyerDashboard extends JFrame {
     private JButton logoutButton;
     private ProductService productService;
     private UserService userService;
-    private User currentUser;
+   
 
     public BuyerDashboard(User user) {
-        this.currentUser = user;
+       
         try {
             this.productService = new ProductService();
             this.userService = new UserService();
