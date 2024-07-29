@@ -133,6 +133,53 @@ public class ConsoleApp {
         }
     }
 
+    private void displayBuyerMenu(User user) {
+        while (true) {
+            System.out.println("\nWelcome, Buyer " + user.getUsername());
+            System.out.println("1. Browse All Products");
+            System.out.println("2. Search for a Product");
+            System.out.println("3. View Product Details");
+            System.out.println("4. Logout");
+            int choice = getValidMenuChoice(1, 4);
+
+            switch (choice) {
+                case 1:
+                    browseAllProducts();
+                    break;
+                case 2:
+                    searchProducts();
+                    break;
+                case 3:
+                    viewProductDetails();
+                    break;
+                case 4:
+                    System.out.println("Logging out...");
+                    return;
+            }
+        }
+    }
+
+    private void displayAdminMenu(User user) {
+        while (true) {
+            System.out.println("Welcome, Admin " + user.getUsername());
+            System.out.println("1. View All Users");
+            System.out.println("2. Delete User");
+            System.out.println("3. View All Products");
+            System.out.println("4. Logout");
+            int choice = getValidMenuChoice(1, 4);
+
+            if (choice == 1) {
+                viewAllUsers();
+            } else if (choice == 2) {
+                deleteUser();
+            } else if (choice == 3) {
+                viewAllProducts();
+            } else if (choice == 4) {
+                break;
+            }
+        }
+    }
+
     private void addProduct(User user) {
         System.out.print("Enter product name: ");
         String name = scanner.nextLine();
@@ -214,6 +261,107 @@ public class ConsoleApp {
         }
     }
 
+    private void browseAllProducts() {
+        List<Product> products = productService.getAllProducts();
+        if (products.isEmpty()) {
+            System.out.println("No products available at the moment.");
+        } else {
+            System.out.println("\nAll Available Products:");
+            for (Product product : products) {
+                System.out.println(product.getProductId() + ". " + product.getName() + " - $" + product.getPrice());
+            }
+        }
+    }
+
+    private void searchProducts() {
+        System.out.print("Enter search keyword: ");
+        String keyword = scanner.nextLine().trim();
+        List<Product> products = productService.getAllProducts(); // We'll filter this list
+        
+        System.out.println("\nSearch Results:");
+        boolean found = false;
+        for (Product product : products) {
+            if (product.getName().toLowerCase().contains(keyword.toLowerCase()) ||
+                product.getDescription().toLowerCase().contains(keyword.toLowerCase())) {
+                System.out.println(product.getProductId() + ". " + product.getName() + " - $" + product.getPrice());
+                found = true;
+            }
+        }
+        
+        if (!found) {
+            System.out.println("No products found matching your search.");
+        }
+    }
+
+    private void viewProductDetails() {
+        System.out.print("Enter the product ID to view details: ");
+        try {
+            int productId = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
+            
+            Product product = productService.getProductById(productId);
+            if (product != null) {
+                System.out.println("\nProduct Details:");
+                System.out.println("ID: " + product.getProductId());
+                System.out.println("Name: " + product.getName());
+                System.out.println("Price: $" + product.getPrice());
+                System.out.println("Quantity Available: " + product.getQuantity());
+                System.out.println("Description: " + product.getDescription());
+                
+                User seller = userService.getUserById(product.getSellerId());
+                System.out.println("Seller: " + seller.getUsername());
+            } else {
+                System.out.println("Product not found.");
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input. Please enter a valid product ID.");
+            scanner.nextLine(); // Clear the invalid input
+        }
+    }
+
+    private void viewAllUsers() {
+        List<User> users = userService.getAllUsers();
+        if (users.isEmpty()) {
+            System.out.println("No users found.");
+        } else {
+            System.out.println("All Users:");
+            for (User user : users) {
+                System.out.println("ID: " + user.getUserId() + ", Username: " + user.getUsername() +
+                        ", Email: " + user.getEmail() + ", Role: " + user.getRole());
+            }
+        }
+    }
+
+    private void deleteUser() {
+        System.out.print("Enter user ID to delete: ");
+        int userId = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+
+        User user = userService.getUserById(userId);
+        if (user != null) {
+            userService.deleteUser(userId);
+            System.out.println("User deleted successfully!");
+        } else {
+            System.out.println("User not found.");
+        }
+    }
+
+    private void viewAllProducts() {
+        List<Product> products = productService.getAllProducts();
+        if (products.isEmpty()) {
+            System.out.println("No products found.");
+        } else {
+            System.out.println("All Products:");
+            for (Product product : products) {
+                User seller = userService.getUserById(product.getSellerId());
+                System.out.println("ID: " + product.getProductId() + ", Name: " + product.getName() +
+                        ", Price: " + product.getPrice() + ", Quantity: " + product.getQuantity() +
+                        ", Description: " + product.getDescription() +
+                        ", Seller: " + seller.getUsername() + " (Email: " + seller.getEmail() + ")");
+            }
+        }
+    }
+
     private int getValidMenuChoice(int min, int max) {
         int choice = 0;
         while (true) {
@@ -239,17 +387,5 @@ public class ConsoleApp {
         Pattern pattern = Pattern.compile(emailRegex);
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
-    }
-
-    private void displayBuyerMenu(User user) {
-        System.out.println("Welcome, Buyer " + user.getUsername());
-        // Display buyer-specific options
-        // Handle buyer menu actions
-    }
-
-    private void displayAdminMenu(User user) {
-        System.out.println("Welcome, Admin " + user.getUsername());
-        // Display admin-specific options
-        // Handle admin menu actions
     }
 }

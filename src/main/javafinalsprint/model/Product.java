@@ -8,7 +8,6 @@ public class Product {
     private int sellerId;
     private String description;
 
-
     // Getters and Setters
     public int getProductId() {
         return productId;
@@ -57,6 +56,4 @@ public class Product {
     public void setDescription(String description) {
         this.description = description;
     }
-    
-
 }
