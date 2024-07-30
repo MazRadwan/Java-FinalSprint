@@ -1,6 +1,6 @@
 package main.javafinalsprint.util;
 
-import javax.swing.*;
+
 import java.awt.*;
 
 public class ScreenUtils {
