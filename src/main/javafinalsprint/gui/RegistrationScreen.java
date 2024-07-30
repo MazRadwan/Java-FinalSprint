@@ -2,6 +2,8 @@ package main.javafinalsprint.gui;
 
 import main.javafinalsprint.model.User;
 import main.javafinalsprint.service.UserService;
+import main.javafinalsprint.util.ScreenUtils;
+
 import javax.swing.*;
 import java.awt.*;
 import java.sql.SQLException;
@@ -36,7 +38,8 @@ public class RegistrationScreen extends JFrame {
         setTitle("E-Commerce Registration");
         setSize(300, 250);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
+        // setLocationRelativeTo(null);
+        ScreenUtils.centerOnScreen(this);
 
         JPanel panel = new JPanel(new GridLayout(6, 2, 5, 5));
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));

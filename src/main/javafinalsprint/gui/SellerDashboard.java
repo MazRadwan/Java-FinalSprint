@@ -2,7 +2,9 @@ package main.javafinalsprint.gui;
 
 import main.javafinalsprint.model.Product;
 import main.javafinalsprint.service.ProductService;
+import main.javafinalsprint.util.ScreenUtils;
 import main.javafinalsprint.model.User;
+
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -30,7 +32,8 @@ public class SellerDashboard extends JFrame {
         setTitle("Seller Dashboard");
         setSize(600, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
+        // setLocationRelativeTo(null);
+        ScreenUtils.centerOnScreen(this);
 
         initComponents();
         loadSellerProducts();
@@ -151,7 +154,7 @@ public class SellerDashboard extends JFrame {
         cancelButton.addActionListener(e -> dialog.dispose());
         
         dialog.pack();
-        dialog.setLocationRelativeTo(this);
+        ScreenUtils.centerOnScreen(dialog);
         dialog.setVisible(true);
     }
     
@@ -245,7 +248,7 @@ public class SellerDashboard extends JFrame {
         cancelButton.addActionListener(e -> dialog.dispose());
     
         dialog.pack();
-        dialog.setLocationRelativeTo(this);
+        ScreenUtils.centerOnScreen(dialog);
         dialog.setVisible(true);
     }
     

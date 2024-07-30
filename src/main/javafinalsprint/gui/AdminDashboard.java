@@ -3,6 +3,7 @@ package main.javafinalsprint.gui;
 import main.javafinalsprint.model.User;
 import main.javafinalsprint.model.Product;
 import main.javafinalsprint.service.UserService;
+import main.javafinalsprint.util.ScreenUtils;
 import main.javafinalsprint.service.ProductService;
 
 import javax.swing.*;
@@ -32,7 +33,8 @@ public class AdminDashboard extends JFrame {
         setTitle("Admin Dashboard");
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
+        // setLocationRelativeTo(null);
+        ScreenUtils.centerOnScreen(this);
 
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());

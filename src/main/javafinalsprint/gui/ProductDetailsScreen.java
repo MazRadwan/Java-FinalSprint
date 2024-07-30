@@ -2,6 +2,9 @@ package main.javafinalsprint.gui;
 
 
 import javax.swing.*;
+
+import main.javafinalsprint.util.ScreenUtils;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,7 +20,8 @@ public class ProductDetailsScreen extends JFrame {
         setTitle("Product Details");
         setSize(300, 250);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setLocationRelativeTo(null);
+        // setLocationRelativeTo(null);
+        ScreenUtils.centerOnScreen(this);
 
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(5, 1));

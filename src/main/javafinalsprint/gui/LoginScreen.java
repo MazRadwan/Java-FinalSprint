@@ -3,7 +3,7 @@ package main.javafinalsprint.gui;
 import main.javafinalsprint.model.User;
 
 import main.javafinalsprint.service.UserService;
-
+import main.javafinalsprint.util.ScreenUtils;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,6 +24,11 @@ public class LoginScreen extends JFrame {
         setupLayout();
         addActionListeners();
         initializeUserService();
+          // Use ScreenUtils to center the frame on the selected screen
+          ScreenUtils.centerOnScreen(this);
+        
+          // Print the actual location of the frame
+          System.out.println("Frame location after centering: " + getLocation());
     }
 
     private void initializeComponents() {
@@ -37,7 +42,7 @@ public class LoginScreen extends JFrame {
         setTitle("E-Commerce Login");
         setSize(300, 200);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
+        // setLocationRelativeTo(null);
 
         JPanel panel = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -135,6 +140,19 @@ public class LoginScreen extends JFrame {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new LoginScreen().setVisible(true));
+        // Print information about all screens
+        ScreenUtils.printScreenInfo();
+
+        // Set the preferred screen to the second monitor (index 1)
+        // You can change this index based on your setup
+        ScreenUtils.setPreferredScreen(1);
+
+        SwingUtilities.invokeLater(() -> {
+            LoginScreen loginScreen = new LoginScreen();
+            loginScreen.setVisible(true);
+
+            // Print the final location of the frame
+            System.out.println("Final frame location: " + loginScreen.getLocation());
+        });
     }
 }

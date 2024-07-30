@@ -4,6 +4,7 @@ import main.javafinalsprint.model.Product;
 import main.javafinalsprint.model.User;
 import main.javafinalsprint.service.ProductService;
 import main.javafinalsprint.service.UserService;
+import main.javafinalsprint.util.ScreenUtils;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -33,7 +34,8 @@ public class BuyerDashboard extends JFrame {
         setTitle("Buyer Dashboard");
         setSize(600, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
+        // setLocationRelativeTo(null);
+        ScreenUtils.centerOnScreen(this);
 
         initComponents();
         layoutComponents();

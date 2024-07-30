@@ -1,6 +1,7 @@
 package main.javafinalsprint.gui;
 
 import main.javafinalsprint.model.User;
+import main.javafinalsprint.util.ScreenUtils;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,7 +18,8 @@ public class Dashboard extends JFrame {
         setTitle("Dashboard");
         setSize(400, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
+        // setLocationRelativeTo(null);
+        ScreenUtils.centerOnScreen(this);
 
         initComponents();
     }
