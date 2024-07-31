@@ -1,0 +1,40 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "RegistrationScreen",
+      "request": "launch",
+      "mainClass": "main.javafinalsprint.gui.RegistrationScreen",
+      "projectName": "Java-FinalSprint_80808da5"
+    },
+    {
+      "type": "java",
+      "name": "LoginScreen",
+      "request": "launch",
+      "mainClass": "main.javafinalsprint.gui.LoginScreen",
+      "projectName": "Java-FinalSprint_80808da5"
+    },
+    {
+      "type": "java",
+      "name": "Main",
+      "request": "launch",
+      "mainClass": "main.javafinalsprint.Main",
+      "projectName": "Java-FinalSprint_80808da5"
+    },
+    {
+      "type": "java",
+      "name": "Launch ConsoleApp",
+      "request": "launch",
+      "mainClass": "javafinalsprint.Main",
+      "projectName": "JAVA-FINALSPRINT"
+    },
+    {
+      "type": "java",
+      "name": "Launch GUI",
+      "request": "launch",
+      "mainClass": "gui.LoginScreen",
+      "projectName": "JAVA-FINALSPRINT"
+    }
+  ]
+}
