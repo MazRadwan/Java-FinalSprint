@@ -144,7 +144,7 @@ public class LoginScreen extends JFrame {
         ScreenUtils.printScreenInfo();
 
         // Set the preferred screen to the second monitor (index 1)
-        // You can change this index based on your setup
+      
         ScreenUtils.setPreferredScreen(1);
 
         SwingUtilities.invokeLater(() -> {

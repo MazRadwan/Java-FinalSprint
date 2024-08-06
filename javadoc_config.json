@@ -1,0 +1,12 @@
+{
+  "options": [
+    "-d",
+    "docs",
+    "-sourcepath",
+    "src/main",
+    "-subpackages",
+    "javafinalsprint",
+    "-classpath",
+    "lib/jbcrypt-0.r.jar:lib/postgresql-42.7.3.jar"
+  ]
+}
