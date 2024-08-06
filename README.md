@@ -98,18 +98,6 @@ root/
      java -cp bin javafinalsprint.gui.LoginScreen
      ```
 
-### Generating Javadocs
-
-1. **Using VSCode Task**
-
-   - Run the "Generate Javadocs" task from the VSCode command palette.
-
-2. **Using Command Line**
-   - Run the following command in the project root:
-     ```sh
-     javadoc -d docs -sourcepath src/main -subpackages javafinalsprint
-     ```
-
 ### Features
 
 - **User Authentication**
@@ -137,6 +125,97 @@ root/
    git push origin feature/your-feature
    ```
 5. **Create a new Pull Request**
+
+# Java Final Sprint User Documentation
+
+## Project Overview
+
+**Java Final Sprint** is a Java-based application designed to manage users and products with distinct roles for administrators, buyers, and sellers. It includes user authentication, product management, and various dashboards tailored for different user roles.
+
+## Classes and Their Explanations
+
+1. **ConsoleApp.java**
+
+   - The entry point for the console-based application. Handles user input and interactions via the console.
+
+2. **Main.java**
+
+   - The main entry point of the application. Initializes necessary services and components.
+
+3. **dao** (Data Access Objects)
+
+   - **DatabaseConnection.java**
+     - Manages database connections.
+   - **ProductDAO.java**
+     - Handles CRUD operations for products.
+   - **UserDAO.java**
+     - Manages user data access and operations.
+
+4. **gui** (Graphical User Interface)
+
+   - **AdminDashboard.java**
+     - Provides the admin user interface for managing users and products.
+   - **BuyerDashboard.java**
+     - Interface for buyers to view and purchase products.
+   - **Dashboard.java**
+     - A base class for different dashboard types.
+   - **LoginScreen.java**
+     - Handles user login interactions.
+   - **ProductDetailsScreen.java**
+     - Displays detailed information about a product.
+   - **RegistrationScreen.java**
+     - Manages user registration.
+   - **SellerDashboard.java**
+     - Interface for sellers to manage their products.
+
+5. **model** (Data Models)
+
+   - **Admin.java**
+     - Represents an admin user.
+   - **Buyer.java**
+     - Represents a buyer user.
+   - **Product.java**
+     - Defines the properties of a product.
+   - **Seller.java**
+     - Represents a seller user.
+   - **User.java**
+     - A base class for user information.
+
+6. **service** (Business Logic)
+
+   - **ProductService.java**
+     - Contains business logic related to products.
+   - **UserService.java**
+     - Manages user-related business logic.
+
+7. **util**
+   - **ScreenUtils.java**
+     - Utility methods for screen operations.
+
+## Starting the Application
+
+1. **Compile the Project**
+
+   ```
+   javac -d bin src/main/javafinalsprint/*.java src/main/javafinalsprint/dao/*.java src/main/javafinalsprint/gui/*.java src/main/javafinalsprint/model/*.java src/main/javafinalsprint/service/*.java src/main/javafinalsprint/util/*.java
+   ```
+
+2. **Run the Main Application**
+
+   ```
+   java -cp bin javafinalsprint.Main
+   ```
+
+3. **Running the Console Application**
+
+   ```
+   java -cp bin javafinalsprint.ConsoleApp
+   ```
+
+4. **Launching the GUI Application**
+   ```
+   java -cp bin javafinalsprint.gui.LoginScreen
+   ```
 
 ## License
 

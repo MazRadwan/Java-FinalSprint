@@ -98,18 +98,6 @@ root/
      java -cp bin javafinalsprint.gui.LoginScreen
      ```
 
-### Generating Javadocs
-
-1. **Using VSCode Task**
-
-   - Run the "Generate Javadocs" task from the VSCode command palette.
-
-2. **Using Command Line**
-   - Run the following command in the project root:
-     ```sh
-     javadoc -d docs -sourcepath src/main -subpackages javafinalsprint
-     ```
-
 ### Features
 
 - **User Authentication**
